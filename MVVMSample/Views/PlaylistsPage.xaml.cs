@@ -26,9 +26,11 @@ namespace MVVMSample.Views
 
         void OnAddPlaylist(object sender, System.EventArgs e)
         {
-            var newPlaylist = "Playlist" + (_playlists.Count + 1);
+            (BindingContext as PlaylistsViewModel).AddPlaylist();
+            ////Moved to ViewModel
+            //var newPlaylist = "Playlist" + (_playlists.Count + 1);
 
-            _playlists.Add(new Playlist {Title = newPlaylist});
+            //_playlists.Add(new Playlist {Title = newPlaylist});
 
             ////This was refactored on the XAML title
             //this.Title = $"{_playlists.Count} Playlists";
@@ -36,13 +38,15 @@ namespace MVVMSample.Views
 
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem == null)
-                return;
+            (BindingContext as PlaylistsViewModel).SelectPlaylist(e.SelectedItem as Playlist);
+            ////Moved to ViewModel
+            //if (e.SelectedItem == null)
+            //    return;
 
-            var playlist = e.SelectedItem as Playlist;
-            playlist.IsFavorite = !playlist.IsFavorite;
+            //var playlist = e.SelectedItem as Playlist;
+            //playlist.IsFavorite = !playlist.IsFavorite;
 
-            playlistsListView.SelectedItem = null;
+            //playlistsListView.SelectedItem = null;
         }
     }
 }
