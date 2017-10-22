@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using MVVMSample.Views;
+using Xamarin.Forms;
 
 namespace MVVMSample
 {
@@ -8,7 +9,7 @@ namespace MVVMSample
         {
             InitializeComponent();
 
-            MainPage = new MVVMSamplePage();
+            MainPage = new NavigationPage(new PlaylistsPage());
         }
 
         protected override void OnStart()

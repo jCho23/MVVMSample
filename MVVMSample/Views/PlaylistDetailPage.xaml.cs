@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MVVMSample.Models;
 using Xamarin.Forms;
 
 namespace MVVMSample.Views
