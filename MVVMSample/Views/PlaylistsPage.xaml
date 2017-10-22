@@ -15,10 +15,10 @@
         ItemSelected="OnPlaylistSelected" >
         <ListView.ItemTemplate>
             <DataTemplate>
-                <!--<Textcell
+                <Textcell
                     Text= "{Binding Title}"
                     TextColor= "{Binding Color}"
-                    Detail = "{Binding IsFavorite, StringFormat= 'Favorite: {0}'}" />-->
+                    Detail = "{Binding IsFavorite, StringFormat= 'Favorite: {0}'}" />
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
