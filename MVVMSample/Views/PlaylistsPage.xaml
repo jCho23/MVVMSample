@@ -7,7 +7,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Text= "Add"
-            Clicked="Handle_Clicked" />
+            Clicked="OnAddPlaylist" />
     </ContentPage.ToolbarItems>
 
     <ListView
