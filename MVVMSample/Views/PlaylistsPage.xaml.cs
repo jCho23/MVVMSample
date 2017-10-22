@@ -7,7 +7,7 @@ namespace MVVMSample.Views
 {
     public partial class PlaylistsPage : ContentPage
     {
-        private ObservableCollection<Playlist> _playlists = new ObservableColllection<Playlist> ();
+        private ObservableCollection<Playlist> _playlists = new ObservableCollection<Playlist> ();
 
         public PlaylistsPage()
         {
@@ -20,21 +20,24 @@ namespace MVVMSample.Views
             base.OnAppearing(); 
         }
 
-
-
-
-
-
-
-
-        void Handle_Clicked(object sender, System.EventArgs e)
+        void OnAddPlaylist(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            var newPlaylist = "Playlist" + (_playlists.Count + 1);
+
+            _playlists.Add(new Playlist {Title = newPlaylist});
+
+            this.Title = $"{_playlists.Count} Playlists";
         }
 
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.SelectedItem == null)
+                return;
+
+            var playlist = e.SelectedItem as Playlist;
+            playlist.IsFavorite = !playlist.IsFavorite;
+
+            playlistsListView.SelectedItem = null;
         }
     }
 }
