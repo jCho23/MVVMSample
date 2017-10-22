@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using MVVMSample.Models;
+
 using Xamarin.Forms;
+using MVVMSample.Models;
 
 namespace MVVMSample.Views
 {
