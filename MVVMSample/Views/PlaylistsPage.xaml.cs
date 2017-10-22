@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using MVVMSample.Models;
 using Xamarin.Forms;
 
 namespace MVVMSample.Views
