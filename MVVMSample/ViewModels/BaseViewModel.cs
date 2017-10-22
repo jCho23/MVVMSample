@@ -1,10 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
+
 namespace MVVMSample.ViewModels
 {
-    public class BaseViewModel
+    public class BaseViewModel : INotifyPropertyChanged
     {
-        public BaseViewModel()
-        {
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
