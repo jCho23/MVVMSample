@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using MVVMSample.Interfaces;
 using MVVMSample.Models;
+using MVVMSample.Services;
 
 namespace MVVMSample.ViewModels
 {
@@ -29,6 +32,12 @@ namespace MVVMSample.ViewModels
             }
         }
 
+        private readonly IPageService _pageService;
+        public PlaylistsViewModel(IPageService pageService)
+        {
+            _pageService = pageService;
+        }
+
         public void AddPlaylist()
         {
             var newPlaylist = "Playlist" + (Playlists.Count + 1);
@@ -36,7 +45,7 @@ namespace MVVMSample.ViewModels
             Playlists.Add(new PlaylistViewModel { Title = newPlaylist });
         }
 
-        public void SelectPlaylist(PlaylistViewModel playlist)
+        public async Task SelectPlaylist(PlaylistViewModel playlist)
         {
             if (playlist == null)
                 return;
@@ -44,6 +53,8 @@ namespace MVVMSample.ViewModels
             playlist.IsFavorite = !playlist.IsFavorite;
 
             SelectedPlaylist = null;
+
+            await _pageService.PushAsync(new PlaylistDetailPage(playlist));
         }
     }
 }

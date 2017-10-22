@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using MVVMSample.Models;
 using MVVMSample.ViewModels;
+using MVVMSample.Services;
 
 namespace MVVMSample.Views
 {
@@ -13,7 +14,7 @@ namespace MVVMSample.Views
 
         public PlaylistsPage()
         {
-            BindingContext = new PlaylistsViewModel();
+            BindingContext = new PlaylistsViewModel(new PageService());
             InitializeComponent();
         }
 
