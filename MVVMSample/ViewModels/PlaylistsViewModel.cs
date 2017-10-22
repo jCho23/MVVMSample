@@ -8,8 +8,24 @@ namespace MVVMSample.ViewModels
     {
         public ObservableCollection<Playlist> Playlists { get; private set; } = new ObservableCollection<Playlist>();
 
-        private
-        public Playlist SelectedPlaylist { get; set; }
+        private Playlist _selectedPlaylist;
+        public Playlist SelectedPlaylist
+        {
+            get
+            {
+                return _selectedPlaylist;
+            }
+
+            set
+            {
+                if (_selectedPlaylist == value)
+                    return;
+
+                _selectedPlaylist = value;
+
+                OnPropertyChanged(); 
+            }
+        }
 
         public void AddPlaylist()
         {

@@ -1,14 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using MVVMSample.ViewModels;
 using Xamarin.Forms;
 
 namespace MVVMSample.Models
 {
-    public class Playlist : INotifyPropertyChanged
+    public class Playlist : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        ////No longer needed, since we added BaseViewModel
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         public string Title { get; set; }
 
@@ -33,10 +34,11 @@ namespace MVVMSample.Models
             get { return IsFavorite ? Color.HotPink : Color.Black; }
         }
 
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        ////Moved to BaseViewModel
+        //private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
     }
 }
 
