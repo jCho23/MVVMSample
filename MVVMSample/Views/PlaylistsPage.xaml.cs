@@ -30,7 +30,8 @@ namespace MVVMSample.Views
 
             _playlists.Add(new Playlist {Title = newPlaylist});
 
-            this.Title = $"{_playlists.Count} Playlists";
+            ////This was refactored on the XAML title
+            //this.Title = $"{_playlists.Count} Playlists";
         }
 
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
