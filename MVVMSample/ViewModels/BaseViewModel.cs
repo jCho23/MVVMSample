@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace MVVMSample.ViewModels
@@ -22,7 +22,6 @@ namespace MVVMSample.ViewModels
             backingField = value;
 
             OnPropertyChanged(propertyName);
-
         }
     }
 }

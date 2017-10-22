@@ -6,10 +6,10 @@ namespace MVVMSample.ViewModels
 {
     public class PlaylistsViewModel : BaseViewModel
     {
-        public ObservableCollection<Playlist> Playlists { get; private set; } = new ObservableCollection<Playlist>();
+        public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
 
-        private Playlist _selectedPlaylist;
-        public Playlist SelectedPlaylist
+        private PlaylistViewModel _selectedPlaylist;
+        public PlaylistViewModel SelectedPlaylist
         {
             get
             {
@@ -33,10 +33,10 @@ namespace MVVMSample.ViewModels
         {
             var newPlaylist = "Playlist" + (Playlists.Count + 1);
 
-            Playlists.Add(new Playlist { Title = newPlaylist });
+            Playlists.Add(new PlaylistViewModel { Title = newPlaylist });
         }
 
-        public void SelectPlaylist(Playlist playlist)
+        public void SelectPlaylist(PlaylistViewModel playlist)
         {
             if (playlist == null)
                 return;

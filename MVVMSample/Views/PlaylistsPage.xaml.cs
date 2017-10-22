@@ -38,7 +38,7 @@ namespace MVVMSample.Views
 
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            (BindingContext as PlaylistsViewModel).SelectPlaylist(e.SelectedItem as Playlist);
+            (BindingContext as PlaylistsViewModel).SelectPlaylist(e.SelectedItem as PlaylistViewModel);
             ////Moved to ViewModel
             //if (e.SelectedItem == null)
             //    return;
