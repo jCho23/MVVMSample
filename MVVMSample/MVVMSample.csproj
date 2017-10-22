@@ -48,6 +48,7 @@
       <DependentUpon>PlaylistsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Playlist.cs" />
+    <Compile Include="ViewModels\PlaylistsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
