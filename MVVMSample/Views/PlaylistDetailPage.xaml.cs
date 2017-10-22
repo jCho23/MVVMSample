@@ -7,9 +7,16 @@ namespace MVVMSample.Views
 {
     public partial class PlaylistDetailPage : ContentPage
     {
-        public PlaylistDetailPage()
+
+        private Playlist _playlist;
+
+        public PlaylistDetailPage(Playlist playlist)
         {
+            _playlist = playlist;
+
             InitializeComponent();
+
+            title.Text = playlist.Title;
         }
     }
 }
