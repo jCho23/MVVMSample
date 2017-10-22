@@ -19,12 +19,13 @@ namespace MVVMSample.Models
             get { return _isFavorite; }
             set
             {
-                if (_isFavorite == value)
-                    return;
+                SetValue(ref _isFavorite, value);
+                ////Moved to BaseViewModel
+                //if (_isFavorite == value)
+                //    return;
 
-                _isFavorite = value;
-
-                OnPropertyChanged();
+                //_isFavorite = value;
+                //OnPropertyChanged();
                 OnPropertyChanged(nameof(Color));
             }
         }
