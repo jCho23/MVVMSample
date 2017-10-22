@@ -15,11 +15,7 @@ namespace MVVMSample.Models
         private bool _isFavorite;
         public bool IsFavorite
         {
-            get
-            {
-                return _isFavorite;
-            }
-
+            get { return _isFavorite; }
             set
             {
                 if (_isFavorite == value)
@@ -27,21 +23,20 @@ namespace MVVMSample.Models
 
                 _isFavorite = value;
 
-                OnPropertyChanged ();
+                OnPropertyChanged();
                 OnPropertyChanged(nameof(Color));
             }
         }
 
-        public Color color
+        public Color Color
         {
-            get
-            {
-                return IsFavorite ? Color.Pink : Color.Black;             }
+            get { return IsFavorite ? Color.Pink : Color.Black; }
         }
 
-        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
+
