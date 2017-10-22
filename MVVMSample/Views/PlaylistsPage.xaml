@@ -11,11 +11,12 @@
             Clicked="OnAddPlaylist" />
     </ContentPage.ToolbarItems>
 
+<!--    x:Name= "playlistsListView"--> 
+<!--    No longer need "x:Name"" becuase we created a ViewModel-->   
     <ListView
-        x:Name= "playlistsListView"
-        SelectedItem="{Binding SelectedPlaylist, Mode=TwoWay}"
         ItemsSource= "{Binding Playlists}"
-        ItemSelected="OnPlaylistSelected" >
+        ItemSelected="OnPlaylistSelected" 
+        SelectedItem="{Binding SelectedPlaylist, Mode=TwoWay}" >
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell

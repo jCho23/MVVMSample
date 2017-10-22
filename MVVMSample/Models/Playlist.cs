@@ -30,7 +30,7 @@ namespace MVVMSample.Models
 
         public Color Color
         {
-            get { return IsFavorite ? Color.Pink : Color.Black; }
+            get { return IsFavorite ? Color.HotPink : Color.Black; }
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
