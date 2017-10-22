@@ -4,9 +4,11 @@ using MVVMSample.Models;
 
 namespace MVVMSample.ViewModels
 {
-    public class PlaylistsViewModel
+    public class PlaylistsViewModel : BaseViewModel
     {
         public ObservableCollection<Playlist> Playlists { get; private set; } = new ObservableCollection<Playlist>();
+
+        private
         public Playlist SelectedPlaylist { get; set; }
 
         public void AddPlaylist()
