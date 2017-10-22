@@ -2,7 +2,8 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="MVVMSample.Views.PlaylistsPage">
+    x:Class="MVVMSample.Views.PlaylistsPage"
+    Title="{Binding Path=Playlists.Count, StringFormat='{0} Playlists'">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem
@@ -12,6 +13,7 @@
 
     <ListView
         x:Name= "playlistsListView"
+        ItemsSource= "{Binding Playlists}"
         ItemSelected="OnPlaylistSelected" >
         <ListView.ItemTemplate>
             <DataTemplate>

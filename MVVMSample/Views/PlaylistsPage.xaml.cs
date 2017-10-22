@@ -4,21 +4,23 @@ using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 using MVVMSample.Models;
+using MVVMSample.ViewModels;
 
 namespace MVVMSample.Views
 {
     public partial class PlaylistsPage : ContentPage
     {
-        private ObservableCollection<Playlist> _playlists = new ObservableCollection<Playlist> ();
 
         public PlaylistsPage()
         {
+            BindingContext = new PlaylistsViewModel();
             InitializeComponent();
         }
 
         protected override void OnAppearing ()
         {
-            playlistsListView.ItemsSource = _playlists;
+            ////No Longer need this line since we implemented the BindingContext above
+            //playlistsListView.ItemsSource = _playlists;
             base.OnAppearing(); 
         }
 
