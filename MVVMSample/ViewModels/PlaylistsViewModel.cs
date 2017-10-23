@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MVVMSample.Interfaces;
 using MVVMSample.Models;
 using MVVMSample.Services;
+using MVVMSample.Views;
 
 namespace MVVMSample.ViewModels
 {
