@@ -49,7 +49,7 @@ namespace MVVMSample.ViewModels
 
             ////Here, we are wrapping the AddPlaylist Method using Command
             AddPlaylistCommand = new Command(AddPlaylist);
-            ////We are using a generic
+            ////We are using a generic version of the Command class
             SelectPlaylistCommand = new Command<PlaylistViewModel>(async vm => SelectPlaylist(vm));
 
         }
