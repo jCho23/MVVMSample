@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MVVMSample.Interfaces;
 using MVVMSample.Models;
 using MVVMSample.Services;
@@ -33,6 +34,7 @@ namespace MVVMSample.ViewModels
             }
         }
 
+        public ICommand AddPlaylistCommand { get; private set; }
         private readonly IPageService _pageService;
         public PlaylistsViewModel(IPageService pageService)
         {
