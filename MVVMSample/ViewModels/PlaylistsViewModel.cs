@@ -6,6 +6,7 @@ using MVVMSample.Interfaces;
 using MVVMSample.Models;
 using MVVMSample.Services;
 using MVVMSample.Views;
+using Xamarin.Forms;
 
 namespace MVVMSample.ViewModels
 {
@@ -39,6 +40,8 @@ namespace MVVMSample.ViewModels
         public PlaylistsViewModel(IPageService pageService)
         {
             _pageService = pageService;
+
+            AddPlaylistCommand = new Command(AddPlaylist);
         }
 
         public void AddPlaylist()

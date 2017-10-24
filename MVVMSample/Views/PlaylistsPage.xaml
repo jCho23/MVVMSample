@@ -8,7 +8,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Text= "Add"
-            Clicked="OnAddPlaylist" />
+            Clicked="OnAddPlaylist"
+            Command="{Binding AddPlaylistCommand}"/>
     </ContentPage.ToolbarItems>
 
 <!--    x:Name= "playlistsListView"--> 
