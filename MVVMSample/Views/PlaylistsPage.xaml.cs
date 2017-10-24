@@ -14,7 +14,7 @@ namespace MVVMSample.Views
 
         public PlaylistsPage()
         {
-            BindingContext = new PlaylistsViewModel(new PageService());
+            ViewModel = new PlaylistsViewModel(new PageService());
             InitializeComponent();
         }
 
@@ -40,7 +40,7 @@ namespace MVVMSample.Views
 
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-            (BindingContext as PlaylistsViewModel).SelectPlaylist(e.SelectedItem as PlaylistViewModel);
+            ViewModel.SelectPlaylistCommand.Execute(e.SelectedItem);
             ////Moved to ViewModel
             //if (e.SelectedItem == null)
             //    return;
@@ -49,6 +49,19 @@ namespace MVVMSample.Views
             //playlist.IsFavorite = !playlist.IsFavorite;
 
             //playlistsListView.SelectedItem = null;
+        }
+
+        private PlaylistsViewModel ViewModel
+        {
+            get
+            {
+                return BindingContext as PlaylistsViewModel;
+            }
+
+            set
+            {
+                BindingContext = value;  
+            }
         }
     }
 }
