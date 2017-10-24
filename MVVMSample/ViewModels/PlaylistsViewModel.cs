@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using MVVMSample.Interfaces;
+using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+
+using Xamarin.Forms;
+
+using MVVMSample.Views;
 using MVVMSample.Models;
 using MVVMSample.Services;
-using MVVMSample.Views;
-using Xamarin.Forms;
+using MVVMSample.Interfaces;
 
 namespace MVVMSample.ViewModels
 {
@@ -41,10 +43,11 @@ namespace MVVMSample.ViewModels
         {
             _pageService = pageService;
 
+            ////Here, we are wrapping the AddPlaylist Method using Command
             AddPlaylistCommand = new Command(AddPlaylist);
         }
 
-        public void AddPlaylist()
+        private void AddPlaylist()
         {
             var newPlaylist = "Playlist" + (Playlists.Count + 1);
 
