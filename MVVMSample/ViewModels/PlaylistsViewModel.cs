@@ -37,6 +37,8 @@ namespace MVVMSample.ViewModels
             }
         }
 
+		////The follwings are Read-Only Properties 
+        ////These properties are handling the events 
         public ICommand AddPlaylistCommand { get; private set; }
         public ICommand SelectPlaylistCommand { get; private set; }
 
@@ -47,6 +49,9 @@ namespace MVVMSample.ViewModels
 
             ////Here, we are wrapping the AddPlaylist Method using Command
             AddPlaylistCommand = new Command(AddPlaylist);
+            ////We are using a generic
+            SelectPlaylistCommand = new Command<PlaylistViewModel>(async vm => SelectPlaylist(vm));
+
         }
 
         private void AddPlaylist()
