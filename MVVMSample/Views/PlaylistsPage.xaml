@@ -16,8 +16,8 @@
 <!--    x:Name= "playlistsListView"--> 
 <!--    No longer need "x:Name"" becuase we created a ViewModel-->   
     <ListView
-        ItemsSource= "{Binding Playlists}"
         ItemSelected="OnPlaylistSelected" 
+        ItemsSource= "{Binding Playlists}"
         SelectedItem="{Binding SelectedPlaylist, Mode=TwoWay}" >
         <ListView.ItemTemplate>
             <DataTemplate>

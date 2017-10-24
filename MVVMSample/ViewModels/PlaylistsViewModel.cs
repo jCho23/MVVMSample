@@ -14,10 +14,13 @@ namespace MVVMSample.ViewModels
 {
     public class PlaylistsViewModel : BaseViewModel
     {
-        public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
+        ////Private Fields
+		private PlaylistViewModel _selectedPlaylist;
+		private readonly IPageService _pageService;
 
-        private PlaylistViewModel _selectedPlaylist;
-        public PlaylistViewModel SelectedPlaylist
+        ////Public Properties
+		public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
+		public PlaylistViewModel SelectedPlaylist
         {
             get
             {
@@ -37,12 +40,13 @@ namespace MVVMSample.ViewModels
             }
         }
 
-		////The follwings are Read-Only Properties 
+        ////The follwings are Read-Only Properties 
         ////These properties are handling the events 
         public ICommand AddPlaylistCommand { get; private set; }
         public ICommand SelectPlaylistCommand { get; private set; }
 
-        private readonly IPageService _pageService;
+
+        ////Constructor
         public PlaylistsViewModel(IPageService pageService)
         {
             _pageService = pageService;
@@ -54,6 +58,7 @@ namespace MVVMSample.ViewModels
             SelectPlaylistCommand = new Command<PlaylistViewModel>(async vm => await SelectPlaylist(vm));
         }
 
+        ////Private Methods
         private void AddPlaylist()
         {
             var newPlaylist = "Playlist" + (Playlists.Count + 1);

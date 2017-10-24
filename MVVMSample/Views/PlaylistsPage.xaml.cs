@@ -20,8 +20,6 @@ namespace MVVMSample.Views
 
         protected override void OnAppearing ()
         {
-            ////No Longer need this line since we implemented the BindingContext above
-            //playlistsListView.ItemsSource = _playlists;
             base.OnAppearing(); 
         }
 
@@ -32,11 +30,7 @@ namespace MVVMSample.Views
             ////Moved to ViewModel
             //var newPlaylist = "Playlist" + (_playlists.Count + 1);
 
-            //_playlists.Add(new Playlist {Title = newPlaylist});
-
-            ////This was refactored on the XAML title
-            //this.Title = $"{_playlists.Count} Playlists";
-        //}
+            //_playlists.Add(new Playlist {Title = newPlaylist})
 
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
