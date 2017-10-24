@@ -25,9 +25,10 @@ namespace MVVMSample.Views
             base.OnAppearing(); 
         }
 
-        void OnAddPlaylist(object sender, System.EventArgs e)
-        {
-            (BindingContext as PlaylistsViewModel).AddPlaylist();
+        ////Implemented ICommand, no longer need event handler
+        //void OnAddPlaylist(object sender, System.EventArgs e)
+        //{
+            //(BindingContext as PlaylistsViewModel).AddPlaylist();
             ////Moved to ViewModel
             //var newPlaylist = "Playlist" + (_playlists.Count + 1);
 
@@ -35,7 +36,7 @@ namespace MVVMSample.Views
 
             ////This was refactored on the XAML title
             //this.Title = $"{_playlists.Count} Playlists";
-        }
+        //}
 
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
