@@ -38,6 +38,8 @@ namespace MVVMSample.ViewModels
         }
 
         public ICommand AddPlaylistCommand { get; private set; }
+        public ICommand SelectPlaylistCommand { get; private set; }
+
         private readonly IPageService _pageService;
         public PlaylistsViewModel(IPageService pageService)
         {
