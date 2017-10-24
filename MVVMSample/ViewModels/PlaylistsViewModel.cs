@@ -50,8 +50,8 @@ namespace MVVMSample.ViewModels
             ////Here, we are wrapping the AddPlaylist Method using Command
             AddPlaylistCommand = new Command(AddPlaylist);
             ////We are using a generic version of the Command class to account for the Asynchronous Method
-            SelectPlaylistCommand = new Command<PlaylistViewModel>(async vm => SelectPlaylist(vm));
-
+            ////Thus, we need to declare an Asynchronous Lambda expression and manually call the target method   
+            SelectPlaylistCommand = new Command<PlaylistViewModel>(async vm => await SelectPlaylist(vm));
         }
 
         private void AddPlaylist()
@@ -61,7 +61,7 @@ namespace MVVMSample.ViewModels
             Playlists.Add(new PlaylistViewModel { Title = newPlaylist });
         }
 
-        public async Task SelectPlaylist(PlaylistViewModel playlist)
+        private async Task SelectPlaylist(PlaylistViewModel playlist)
         {
             if (playlist == null)
                 return;
