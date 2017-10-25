@@ -5,16 +5,16 @@
     x:Class="MVVMSample.Views.PlaylistsPage"
     Title="{Binding Path=Playlists.Count, StringFormat='{0} Playlists'}">
 
-<!--    No Longer need Event Handler below, the Command is handling it now-->            
-    <!--Clicked="OnAddPlaylist"-->
+<!--    No Longer need Event Handler below, the Command is handling it now           
+        Clicked="OnAddPlaylist"-->
     <ContentPage.ToolbarItems>
         <ToolbarItem
             Text= "Add"
             Command="{Binding AddPlaylistCommand}"/>
     </ContentPage.ToolbarItems>
 
-<!--    x:Name= "playlistsListView"--> 
-<!--    No longer need "x:Name"" becuase we created a ViewModel-->   
+<!--    x:Name= "playlistsListView"
+        No longer need "x:Name"" becuase we created a ViewModel-->   
     <ListView
         ItemSelected="OnPlaylistSelected" 
         ItemsSource= "{Binding Playlists}"
