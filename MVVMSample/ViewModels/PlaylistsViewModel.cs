@@ -14,11 +14,9 @@ namespace MVVMSample.ViewModels
 {
     public class PlaylistsViewModel : BaseViewModel
     {
-        ////Private Fields
 		private PlaylistViewModel _selectedPlaylist;
 		private readonly IPageService _pageService;
 
-        ////Public Properties
 		public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
 		public PlaylistViewModel SelectedPlaylist
         {
