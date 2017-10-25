@@ -30,13 +30,6 @@ namespace MVVMSample.ViewModels
             set
             {
                 SetValue(ref _selectedPlaylist, value);
-                ////Moved to BaseViewModel
-                //if (_selectedPlaylist == value)
-                //    return;
-
-                //_selectedPlaylist = value;
-
-                //OnPropertyChanged(); 
             }
         }
 
