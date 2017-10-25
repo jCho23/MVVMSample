@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using MVVMSample.Interfaces;
+
 using Xamarin.Forms;
+
+using MVVMSample.Interfaces;
 
 namespace MVVMSample.Services
 {
