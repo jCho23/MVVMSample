@@ -15,12 +15,7 @@ namespace MVVMSample.ViewModels
             set
             {
                 SetValue(ref _isFavorite, value);
-                ////Moved to BaseViewModel
-                //if (_isFavorite == value)
-                //    return;
 
-                //_isFavorite = value;
-                //OnPropertyChanged();
                 OnPropertyChanged(nameof(Color));
             }
         }
