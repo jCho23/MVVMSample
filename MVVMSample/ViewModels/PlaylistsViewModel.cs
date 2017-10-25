@@ -31,25 +31,23 @@ namespace MVVMSample.ViewModels
             }
         }
 
-        ////The follwings are Read-Only Properties 
-        ////These properties are handling the events 
+        /* The followings are Read-Only Properties 
+        These properties are handling the events */ 
         public ICommand AddPlaylistCommand { get; private set; }
         public ICommand SelectPlaylistCommand { get; private set; }
 
-
-        ////Constructor
         public PlaylistsViewModel(IPageService pageService)
         {
             _pageService = pageService;
 
-            ////Here, we are wrapping the AddPlaylist Method using Command
+            //Here, we are wrapping the AddPlaylist Method using Command
             AddPlaylistCommand = new Command(AddPlaylist);
-            ////We are using a generic version of the Command class to account for the Asynchronous Method
-            ////Thus, we need to declare an Asynchronous Lambda expression and manually call the target method   
+
+            /* We are using a generic version of the Command class to account for the Asynchronous Method
+            Thus, we need to declare an Asynchronous Lambda expression and manually call the target method */  
             SelectPlaylistCommand = new Command<PlaylistViewModel>(async vm => await SelectPlaylist(vm));
         }
-
-        ////Private Methods
+    
         private void AddPlaylist()
         {
             var newPlaylist = "Playlist" + (Playlists.Count + 1);
