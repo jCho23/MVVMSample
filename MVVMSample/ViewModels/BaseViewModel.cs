@@ -61,7 +61,7 @@ namespace MVVMSample.ViewModels
             set
             {
                 SetProperty(ref isBusy, value);
-                SetProperty(ref isBusyRev, !isBusy, null, nameof(IsBusyRev));
+                SetProperty(ref isBusyRev, !isBusy, nameof(IsBusyRev));
             }
         }
 
@@ -81,7 +81,7 @@ namespace MVVMSample.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected void SetValue<T>(ref T backingField, T value, [CallerMemberName] string propertyName = null)
+        protected void SetProperty<T>(ref T backingField, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingField, value))
                 return;
