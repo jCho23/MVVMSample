@@ -55,7 +55,7 @@ namespace MVVMSample.ViewModels
             Playlists.Add(new PlaylistViewModel { Title = newPlaylist });
         }
 
-        private async Task SelectPlaylist(PlaylistViewModel playlist)
+        public async SelectPlaylist(PlaylistViewModel playlist)
         {
             if (playlist == null)
                 return;

@@ -18,6 +18,13 @@ namespace MVVMSample.Views
             base.OnAppearing(); 
         }
 
+        void OnAddPlaylist (object sender, System.EventArgs e)
+        {
+            (BindingContext as PlaylistsViewModel).AddPlaylist();
+        }
+
+
+
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             ViewModel.SelectPlaylistCommand.Execute(e.SelectedItem);
