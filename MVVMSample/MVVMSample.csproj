@@ -51,6 +51,7 @@
     <Compile Include="ViewModels\PlaylistsViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\PlaylistViewModel.cs" />
+    <Compile Include="Views\BaseContentPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

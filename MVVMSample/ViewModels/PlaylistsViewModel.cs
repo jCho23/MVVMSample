@@ -13,7 +13,6 @@ namespace MVVMSample.ViewModels
     public class PlaylistsViewModel : BaseViewModel
     {
 		private PlaylistViewModel _selectedPlaylist;
-		private readonly IPageService _pageService;
 
 		public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
 		public PlaylistViewModel SelectedPlaylist
