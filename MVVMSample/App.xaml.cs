@@ -9,7 +9,7 @@ namespace MVVMSample
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new PlaylistsPage());
+            MainPage = new NavigationPage(new PlaylistsPage(new ViewModels.PlaylistsViewModel()));
         }
 
         protected override void OnStart()
