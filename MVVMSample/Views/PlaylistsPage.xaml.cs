@@ -1,5 +1,5 @@
 ﻿using Xamarin.Forms;
-using MVVMSample.Services;
+
 using MVVMSample.ViewModels;
 using MVVMSample.Models;
 
@@ -10,6 +10,7 @@ namespace MVVMSample.Views
 
         public PlaylistsPage()
         {
+            BindingContext = new PlaylistViewModel();
             InitializeComponent();
         }
 
@@ -20,7 +21,9 @@ namespace MVVMSample.Views
 
         void OnAddPlaylist (object sender, System.EventArgs e)
         {
-            (BindingContext as PlaylistsViewModel).AddPlaylist();
+            var newPlaylist = "Playlist " + (_playlists.Count + 1);
+            _playlists.Add(new Playlist { Title = newPlaylist });
+            this.Title = $"{_playlists.Count} Playlists";
         }
 
 
