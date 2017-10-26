@@ -1,32 +1,35 @@
 ﻿using Xamarin.Forms;
 
-using MVVMSample.ViewModels;
 using MVVMSample.Models;
+using MVVMSample.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace MVVMSample.Views
 {
     public partial class PlaylistsPage : ContentPage
     {
+        private ObservableCollection<Playlist> _playlists = new ObservableCollection<Playlist>();
 
         public PlaylistsPage()
         {
-            BindingContext = new PlaylistViewModel();
             InitializeComponent();
         }
 
-        protected override void OnAppearing ()
+        protected override void OnAppearing()
         {
-            base.OnAppearing(); 
+            playlistsListView.ItemsSource = _playlists;
+
+            base.OnAppearing();
         }
 
-        void OnAddPlaylist (object sender, System.EventArgs e)
+        void OnAddPlaylist(object sender, System.EventArgs e)
         {
             var newPlaylist = "Playlist " + (_playlists.Count + 1);
+
             _playlists.Add(new Playlist { Title = newPlaylist });
+
             this.Title = $"{_playlists.Count} Playlists";
         }
-
-
 
         void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
@@ -37,6 +40,8 @@ namespace MVVMSample.Views
             playlist.IsFavorite = !playlist.IsFavorite;
 
             playlistsListView.SelectedItem = null;
+
+            //await Navigation.PushAsync (new PlaylistDetailPage(playlist));
         }
     }
 }
