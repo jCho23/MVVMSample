@@ -55,7 +55,7 @@ namespace MVVMSample.ViewModels
             Playlists.Add(new PlaylistViewModel { Title = newPlaylist });
         }
 
-        public async SelectPlaylist(PlaylistViewModel playlist)
+        public SelectPlaylist(PlaylistViewModel playlist)
         {
             if (playlist == null)
                 return;
@@ -64,7 +64,7 @@ namespace MVVMSample.ViewModels
 
             SelectedPlaylist = null;
 
-            await _pageService.PushAsync(new PlaylistDetailPage(playlist));
+            //await _pageService.PushAsync(new PlaylistDetailPage(playlist));
         }
     }
 }
