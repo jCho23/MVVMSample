@@ -9,9 +9,12 @@ namespace MVVMSample.Views
     public partial class PlaylistsPage : ContentPage
     {
         private ObservableCollection<Playlist> _playlists = new ObservableCollection<Playlist>();
+        PlaylistsViewModel ViewModel;
 
-        public PlaylistsPage()
+        public PlaylistsPage(PlaylistsViewModel vm)
         {
+            BindingContext = ViewModel = vm;
+            Title = ViewModel.Title;
             InitializeComponent();
         }
 
@@ -31,7 +34,7 @@ namespace MVVMSample.Views
             this.Title = $"{_playlists.Count} Playlists";
         }
 
-        void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        async void OnPlaylistSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
                 return;
@@ -41,7 +44,7 @@ namespace MVVMSample.Views
 
             playlistsListView.SelectedItem = null;
 
-            //await Navigation.PushAsync (new PlaylistDetailPage(playlist));
+            await Navigation.PushAsync (new PlaylistDetailPage(playlist, new PlaylistViewModel()));
         }
     }
 }
