@@ -14,7 +14,7 @@ namespace MVVMSample.ViewModels
             get { return _isFavorite; }
             set
             {
-                SetValue(ref _isFavorite, value);
+                SetProperty(ref _isFavorite, value);
 
                 OnPropertyChanged(nameof(Color));
             }
