@@ -7,8 +7,6 @@ using Xamarin.Forms;
 
 using MVVMSample.Views;
 using MVVMSample.Models;
-using MVVMSample.Services;
-using MVVMSample.Interfaces;
 
 namespace MVVMSample.ViewModels
 {
@@ -55,7 +53,7 @@ namespace MVVMSample.ViewModels
             Playlists.Add(new PlaylistViewModel { Title = newPlaylist });
         }
 
-        public SelectPlaylist(PlaylistViewModel playlist)
+        public SelectPlaylist(Playlist playlist)
         {
             if (playlist == null)
                 return;
