@@ -14,6 +14,11 @@ namespace MVVMSample.ViewModels
     {
 		private PlaylistViewModel _selectedPlaylist;
 
+        public EventHandler<PlaylistEventArgs> PlayListSelected;
+        public class PlaylistEventArgs:EventArgs{
+            public Playlist selectedPlayList { get; set; }
+        }
+
 		public ObservableCollection<PlaylistViewModel> Playlists { get; private set; } = new ObservableCollection<PlaylistViewModel>();
 		public PlaylistViewModel SelectedPlaylist
         {
@@ -24,7 +29,7 @@ namespace MVVMSample.ViewModels
 
             set
             {
-                SetValue(ref _selectedPlaylist, value);
+                SetProperty(ref _selectedPlaylist, value);
             }
         }
 
@@ -33,16 +38,14 @@ namespace MVVMSample.ViewModels
         public ICommand AddPlaylistCommand { get; private set; }
         public ICommand SelectPlaylistCommand { get; private set; }
 
-        public PlaylistsViewModel(IPageService pageService)
+        public PlaylistsViewModel()
         {
-            _pageService = pageService;
-
             //Here, we are wrapping the AddPlaylist Method using Command
             AddPlaylistCommand = new Command(AddPlaylist);
 
             /* We are using a generic version of the Command class to account for the Asynchronous Method
             Thus, we need to declare an Asynchronous Lambda expression and manually call the target method */  
-            SelectPlaylistCommand = new Command<PlaylistViewModel>(async vm => await SelectPlaylist(vm));
+            //SelectPlaylistCommand = new Command<Playlist>(async (pl) => SelectPlaylist(pl));
         }
     
         private void AddPlaylist()
@@ -52,14 +55,16 @@ namespace MVVMSample.ViewModels
             Playlists.Add(new PlaylistViewModel { Title = newPlaylist });
         }
 
-        public SelectPlaylist(Playlist playlist)
+        public void SelectPlaylist(Playlist playlist)
         {
             if (playlist == null)
                 return;
 
             playlist.IsFavorite = !playlist.IsFavorite;
 
-            SelectedPlaylist = null;
+            //SelectedPlaylist = null;
+
+            PlayListSelected?.Invoke(this, new PlaylistEventArgs { selectedPlayList = playlist });
 
             //await _pageService.PushAsync(new PlaylistDetailPage(playlist));
         }
