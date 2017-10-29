@@ -20,7 +20,6 @@ namespace MVVMSample.ViewModels
         }
 
         string title = string.Empty;
-
         // Gets or sets the "Title" property
         public string Title
         {
@@ -29,7 +28,6 @@ namespace MVVMSample.ViewModels
         }
 
         string subTitle = string.Empty;
-
         // Gets or sets the "Subtitle" property
         public string Subtitle
         {
@@ -38,9 +36,7 @@ namespace MVVMSample.ViewModels
         }
 
         string icon;
-        /// <summary>
-        /// Gets or sets the "Icon" of the viewmodel
-        /// </summary>
+        // Gets or sets the "Icon" of the viewmodel
         public string Icon
         {
             get { return icon; }
