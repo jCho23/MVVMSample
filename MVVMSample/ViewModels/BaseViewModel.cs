@@ -29,9 +29,8 @@ namespace MVVMSample.ViewModels
         }
 
         string subTitle = string.Empty;
-        /// <summary>
-        /// Gets or sets the "Subtitle" property
-        /// </summary>
+
+        // Gets or sets the "Subtitle" property
         public string Subtitle
         {
             get { return subTitle; }
