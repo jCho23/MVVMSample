@@ -44,9 +44,7 @@ namespace MVVMSample.ViewModels
         }
 
         bool isBusy;
-        /// <summary>
-        /// Gets or sets if the view is busy.
-        /// </summary>
+        // Gets or sets if the view is busy.
         public bool IsBusy
         {
             get { return isBusy; }
