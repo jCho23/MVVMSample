@@ -21,10 +21,7 @@ namespace MVVMSample.ViewModels
 
         string title = string.Empty;
 
-        /// <summary>
-        /// Gets or sets the "Title" property
-        /// </summary>
-        /// <value>The title.</value>
+        // Gets or sets the "Title" property
         public string Title
         {
             get { return title; }
