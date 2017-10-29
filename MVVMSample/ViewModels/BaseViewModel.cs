@@ -56,9 +56,7 @@ namespace MVVMSample.ViewModels
         }
 
         private bool isBusyRev;
-        /// <summary>
-        /// Gets or sets the reverse of  isbusy. Handy for hiding views during busy times.
-        /// </summary>
+        // Gets or sets the reverse of isbusy. Handy for hiding views during busy times.
         public bool IsBusyRev
         {
             get { return isBusyRev; }
